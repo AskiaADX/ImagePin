@@ -1,0 +1,7 @@
+/* standard.css */
+
+/* General */
+#adc_{%= CurrentADC.InstanceId%} .smartBoard { 
+	display:block;
+	position:relative;
+}

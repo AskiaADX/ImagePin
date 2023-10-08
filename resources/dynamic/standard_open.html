@@ -1,0 +1,29 @@
+<script>
+	window.addEventListener("load", function() {
+        var img = document.getElementsByTagName("img");
+        for (var i = 0; i< img.length; i++) {
+            if (!img[i].hasAttribute("alt") || img[i].alt == "") {
+                if (img[i].src != undefined) {
+                	img[i].alt = img[i].src.split("/")[img[i].src.split("/").length-1].split(".")[0];    
+                } else {
+                    img[i].alt = "Impossible to load image";
+                }         		
+            }
+        }       
+    }, false);
+</script>
+{%
+Dim inputName  =  CurrentQuestion.InputName()
+Dim inputValue =  CurrentQuestion.InputValue()
+Dim inputId = inputName
+
+Dim imagePath = CurrentADC.PropValue("imagePath")
+
+%}
+<textarea id="{%= inputId %}" name="{%= inputName %}" autocomplete="off" style="display:none;">{%= inputValue %}</textarea>
+
+<div class="tempArea"></div>
+<div class="smartBoard">
+	<img id="imgcheck_{%= CurrentADC.InstanceId %}" vclass="smartBG" src="{%= imagePath %}" alt="" />
+</div>
+

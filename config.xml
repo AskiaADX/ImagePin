@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control  xmlns="http://www.askia.com/2.2.0/ADCSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.askia.com/2.2.0/ADCSchema https://raw.githubusercontent.com/AskiaADX/ADXSchema/2.2.0/ADCSchema.xsd"
+          version="2.2.0"
+          askiaCompat="5.5.2">
+  <info>
+    <name>ImagePin</name>
+    <guid>51b3c59b-f167-4a72-aa42-5f019f705262</guid>
+    <version>4.0.0</version>
+    <date>2023-10-07</date>
+    <description><![CDATA[ImagePin ADC]]></description>
+    <company>Askia</company>
+    <author><![CDATA[Jerome Duparc <jeromed@askia.com>]]></author>
+    <site>http://www.askia.com/</site>
+    <helpURL></helpURL>
+    <categories>
+      <category>General</category>
+    </categories>
+    <constraints>
+      <constraint on="questions" single="false" multiple="false" numeric="false" date="false" open="true" chapter="false" requireParentLoop="false" requireLoopDepth="0" />
+      <constraint on="controls" responseblock="true" checkbox="false" label="false" listbox="false" radiobutton="false" textbox="true" />
+      <constraint on="responses" max="*" min="*" />
+    </constraints>
+  </info>
+  <outputs defaultOutput="standard">
+    <output id="standard" manageLoopDepth="0">
+      <description><![CDATA[Output when the browser support Javascript]]></description>
+      <condition><![CDATA[Browser.Support("javascript")]]></condition>
+      <content fileName="ImagePin.css" type="css" mode="static" position="head" />
+      <content fileName="standard.css" type="css" mode="dynamic" position="head" />
+      <content fileName="standard.html" type="html" mode="dynamic" position="placeholder" />
+      <content fileName="standard_open.html" type="html" mode="dynamic" position="none" />
+      <content fileName="meta.html" type="html" mode="dynamic" position="head" />
+      <content fileName="es5-shim.min.js" type="javascript" mode="static" position="head">
+        <yield><![CDATA[
+          <!--[if lt IE 10]>
+            <script type="text/javascript" src="{%= CurrentADC.URLTo("static/es5-shim.min.js") %}"></script>
+          <![endif]-->
+        ]]></yield>
+      </content>
+      <content fileName="ImagePin.js" type="javascript" mode="static" position="head" />
+      <content fileName="standard.js" type="javascript" mode="dynamic" position="foot" />
+      <content fileName="standard_open.js" type="javascript" mode="dynamic" position="none" />
+      <content fileName="pixel.png" type="image" mode="static" position="none" />
+      <content fileName="pin.png" type="image" mode="static" position="none" />
+    </output>
+  </outputs>
+  <properties>
+    <category id="general" name="General">
+      <property xsi:type="standardProperty" id="fontSize" name="Font Size" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The font size for the control]]></description>
+        <value><![CDATA[{%= Theme.NormalFS %}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="controlWidth" name="Control Width" type="string" mode="static">
+        <description><![CDATA[The width of the control]]></description>
+        <value><![CDATA[100%]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="maxWidth" name="Max Width" type="string" mode="static">
+        <description><![CDATA[The maximum width of the control]]></description>
+        <value><![CDATA[100%]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="controlAlign" name="Control Alignment" type="string" mode="static" require="false" visible="true">
+        <description><![CDATA[The alignment of the control]]></description>
+        <value><![CDATA[center]]></value>
+        <options>
+          <option value="left" text="Left" />
+          <option value="center" text="Center" />
+          <option value="right" text="Right" />
+        </options>
+      </property>
+      <property xsi:type="standardProperty" id="feeling" name="Pin color" type="string" mode="static" require="false" visible="true">
+        <description><![CDATA[Color of the pin]]></description>
+        <value><![CDATA[3]]></value>
+        <options>
+          <option value="1" text="Green" />
+          <option value="2" text="Yellow" />
+          <option value="3" text="Red" />
+        </options>
+      </property>
+    </category>
+    <category id="image" name="Image">
+      <property xsi:type="standardProperty" id="imagePath" name="Image Path" type="file" mode="static">
+        <description><![CDATA[Path and filename of image to be used]]></description>
+        <value></value>
+      </property>
+    </category>
+  </properties>
+</control>
