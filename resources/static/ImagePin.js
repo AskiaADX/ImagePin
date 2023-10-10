@@ -161,12 +161,13 @@
                 resizedWidth = adcControl.offsetWidth > areaWidth ? areaWidth : adcControl.offsetWidth,
                 resizedHeight = (resizedWidth * ratio);
 
-            this.style.display = 'block';
             this.style.width = resizedWidth + 'px';
             this.style.height = resizedHeight + 'px';
-            smartBoard.style.display = 'block';
+            this.style.display = 'block';
+
             smartBoard.style.width = resizedWidth + 'px';
             smartBoard.style.height = resizedHeight + 'px';
+            smartBoard.style.display = 'block';
 
             init();
 
@@ -215,8 +216,8 @@
 
                     if ((document.body.clientWidth / window.innerWidth) > 1) {
                         var zoom = document.body.clientWidth / window.innerWidth;
-                        dataPinId.dataset.x = xCoord * zoom;
-                        dataPinId.dataset.y = yCoord * zoom;
+                        dataPinId.dataset.x = xCoord * ratioX * zoom;
+                        dataPinId.dataset.y = yCoord * ratioY * zoom;
                         dataPinId.dataset.x0 = xCoordParent * zoom;
                         dataPinId.dataset.y0 = yCoordParent * zoom;
                     }
