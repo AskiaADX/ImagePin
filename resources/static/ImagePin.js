@@ -214,13 +214,13 @@
                     dataPinId.dataset.y0 = yCoordParent;
                     dataPinId.classList.add(pinMoodArray[feeling - 1]);
 
-                    if ((document.body.clientWidth / window.innerWidth) > 1) {
+                    /* if ((document.body.clientWidth / window.innerWidth) > 1) {
                         var zoom = document.body.clientWidth / window.innerWidth;
                         dataPinId.dataset.x = xCoord * ratioX * zoom;
                         dataPinId.dataset.y = yCoord * ratioY * zoom;
                         dataPinId.dataset.x0 = xCoordParent * zoom;
                         dataPinId.dataset.y0 = yCoordParent * zoom;
-                    }
+                    } */
 
                     // write data in the textarea
                     var newValue = { id: dataPinId.dataset.pinid, x: dataPinId.dataset.x, y: dataPinId.dataset.y }
