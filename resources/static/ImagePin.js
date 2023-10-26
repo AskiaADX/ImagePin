@@ -84,6 +84,8 @@
 
         var instanceId = options.instanceId || 1;
         var imagePath = options.imagePath || "";
+        var imageWidth = options.imageWidth || 0;
+        var imageHeight = options.imageHeight || 0;        
         var adcControl = document.getElementById("adc_" + instanceId);
         var smartBoard = adcControl.querySelector(".smartBoard");
         var areaWidth = 0;
@@ -93,7 +95,7 @@
         var ratio = 1;
         var feeling = options.feeling;
         var items = options.items;
-        var data = { url: imagePath, data: [] };
+        var data = { url: imagePath, width: imageWidth, height: imageHeight, data: [] };
 
         adcControl.style.maxWidth = options.maxWidth;
         adcControl.style.width = options.controlWidth;
