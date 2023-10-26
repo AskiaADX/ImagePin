@@ -7,8 +7,8 @@
   <info>
     <name>ImagePin</name>
     <guid>51b3c59b-f167-4a72-aa42-5f019f705262</guid>
-    <version>4.0.3</version>
-    <date>2023-10-07</date>
+    <version>4.0.4</version>
+    <date>2023-10-25</date>
     <description><![CDATA[ImagePin ADC]]></description>
     <company>Askia</company>
     <author><![CDATA[Jerome Duparc <jeromed@askia.com>]]></author>
@@ -78,11 +78,19 @@
           <option value="3" text="Red" />
         </options>
       </property>
+      <property xsi:type="standardProperty" id="imageWidth" name="Image Width" type="number" mode="static" require="false" visible="true">
+        <description><![CDATA[Pass in width of the image to be stored in the JSON]]></description>
+        <value><![CDATA[0]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="imageHeight" name="Image Height" type="number" mode="static" require="false" visible="true">
+        <description><![CDATA[Pass in the height of the image to be stored in the JSON]]></description>
+        <value><![CDATA[0]]></value>
+      </property>
     </category>
     <category id="image" name="Image">
-      <property xsi:type="standardProperty" id="imagePath" name="Image Path" type="file" mode="static">
+      <property xsi:type="standardProperty" id="imagePath" name="Image Path" type="string" mode="static" require="false" visible="true">
         <description><![CDATA[Path and filename of image to be used]]></description>
-        <value></value>
+        <value><![CDATA[https://]]></value>
       </property>
     </category>
   </properties>

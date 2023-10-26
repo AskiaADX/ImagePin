@@ -7,6 +7,8 @@
 		imagePath : '{%:= CurrentADC.PropValue("imagePath") %}',
       	currentQuestion: '{%:= CurrentQuestion.Shortcut %}',
         feeling : '{%:= CurrentADC.PropValue("feeling") %}',
+        imageWidth : '{%:= CurrentADC.PropValue("imageWidth") %}',
+        imageHeight : '{%:= CurrentADC.PropValue("imageHeight") %}',		
 		items : [
 			{%:= CurrentADC.GetContent("dynamic/standard_open.js").ToText()%}
 		]
