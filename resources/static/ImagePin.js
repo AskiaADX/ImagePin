@@ -109,9 +109,11 @@
         }
 
         var imgLoad = adcControl.querySelector("img");
+        imgLoad.setAttribute("crossOrigin", "Anonymous");
         imgLoad.setAttribute("src", imagePath);
         imgLoad.removeEventListener("load", function () { });
         var img = new Image();
+        img.crossOrigin = "Anonymous";
         img.src = imgLoad.src;
 
         // Check if the pixel is transparent
