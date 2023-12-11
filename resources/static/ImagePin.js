@@ -86,6 +86,7 @@
         var imagePath = options.imagePath || "";
         var imageWidth = options.imageWidth || 0;
         var imageHeight = options.imageHeight || 0;        
+        var allowCrossOrigin = options.allowCrossOrigin || false;        
         var adcControl = document.getElementById("adc_" + instanceId);
         var smartBoard = adcControl.querySelector(".smartBoard");
         var areaWidth = 0;
@@ -109,11 +110,15 @@
         }
 
         var imgLoad = adcControl.querySelector("img");
-        imgLoad.setAttribute("crossOrigin", "Anonymous");
+        if (allowCrossOrigin === "1") {
+            imgLoad.setAttribute("crossOrigin", "Anonymous");
+        }
         imgLoad.setAttribute("src", imagePath);
         imgLoad.removeEventListener("load", function () { });
         var img = new Image();
-        img.crossOrigin = "Anonymous";
+        if (allowCrossOrigin === "1") {
+	        img.crossOrigin = "Anonymous";
+        }
         img.src = imgLoad.src;
 
         // Check if the pixel is transparent
