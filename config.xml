@@ -7,7 +7,7 @@
   <info>
     <name>ImagePin</name>
     <guid>51b3c59b-f167-4a72-aa42-5f019f705262</guid>
-    <version>4.0.4</version>
+    <version>4.0.5</version>
     <date>2023-10-25</date>
     <description><![CDATA[ImagePin ADC]]></description>
     <company>Askia</company>
@@ -85,6 +85,14 @@
       <property xsi:type="standardProperty" id="imageHeight" name="Image Height" type="number" mode="static" require="false" visible="true">
         <description><![CDATA[Pass in the height of the image to be stored in the JSON]]></description>
         <value><![CDATA[0]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="allowCrossOrigin" name="Allow Cross Origin" type="string" mode="static" require="false" visible="true">
+        <description><![CDATA[Allow Cross Origin to reference images on a different domain than the survey]]></description>
+        <value><![CDATA[0]]></value>
+        <options>
+          <option value="1" text="Yes" />
+          <option value="0" text="No" />
+        </options>
       </property>
     </category>
     <category id="image" name="Image">

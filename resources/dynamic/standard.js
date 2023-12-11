@@ -9,6 +9,7 @@
         feeling : '{%:= CurrentADC.PropValue("feeling") %}',
         imageWidth : '{%:= CurrentADC.PropValue("imageWidth") %}',
         imageHeight : '{%:= CurrentADC.PropValue("imageHeight") %}',		
+        allowCrossOrigin : '{%:= CurrentADC.PropValue("allowCrossOrigin") %}',		
 		items : [
 			{%:= CurrentADC.GetContent("dynamic/standard_open.js").ToText()%}
 		]
