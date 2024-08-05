@@ -229,6 +229,7 @@
                     var parseJsonValue;
                     if (document.getElementById(items[0].element).value === "") {
                         parseJsonValue = data;
+                        parseJsonValue.data = [];
                     } else {
                         parseJsonValue = JSON.parse(document.getElementById(items[0].element).value);
                     }
@@ -248,9 +249,11 @@
                             // reorder the id
                             var parseJsonValue;
                             parseJsonValue = JSON.parse(document.getElementById(items[0].element).value);
-                            for (var i2 = currentPinID; i2 < parseJsonValue.data.length; i2++) {
-                                parseJsonValue.data[i2].id = i2 - 1;
-                                adcControl.querySelector('[data-pinid="' + i2 + '"]').dataset.pinid = i2 - 1;
+                            if (parseJsonValue.data.length > 1) {
+                                for (var i2 = parseInt(currentPinID) + 1; i2 < parseJsonValue.data.length; i2++) {
+                                    parseJsonValue.data[i2].id = i2 - 1;
+                                    adcControl.querySelector('[data-pinid="' + i2 + '"]').dataset.pinid = i2 - 1;
+                                }
                             }
 
                             // remove pin
