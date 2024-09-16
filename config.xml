@@ -7,8 +7,8 @@
   <info>
     <name>ImagePin</name>
     <guid>51b3c59b-f167-4a72-aa42-5f019f705262</guid>
-    <version>4.0.6</version>
-    <date>2024-08-05</date>
+    <version>4.0.7</version>
+    <date>2024-09-16</date>
     <description><![CDATA[ImagePin ADC]]></description>
     <company>Askia</company>
     <author><![CDATA[Jerome Duparc <jeromed@askia.com>]]></author>
@@ -76,6 +76,22 @@
           <option value="1" text="Green" />
           <option value="2" text="Yellow" />
           <option value="3" text="Red" />
+        </options>
+      </property>
+      <property xsi:type="standardProperty" id="nbDigits" name="Number of digits" type="string" mode="static" require="false" visible="true">
+        <description><![CDATA[Number of digits]]></description>
+        <value><![CDATA[2]]></value>
+        <options>
+          <option value="1" text="1 digit" />
+          <option value="2" text="2 digits" />
+          <option value="3" text="3 digits" />
+          <option value="4" text="4 digits" />
+          <option value="5" text="5 digits" />
+          <option value="6" text="6 digits" />
+          <option value="7" text="7 digits" />
+          <option value="8" text="8 digits" />
+          <option value="9" text="9 digits" />
+          <option value="10" text="10 digits" />
         </options>
       </property>
       <property xsi:type="standardProperty" id="imageWidth" name="Image Width" type="number" mode="static" require="false" visible="true">
