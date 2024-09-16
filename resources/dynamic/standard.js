@@ -7,6 +7,7 @@
 		imagePath : '{%:= CurrentADC.PropValue("imagePath") %}',
       	currentQuestion: '{%:= CurrentQuestion.Shortcut %}',
         feeling : '{%:= CurrentADC.PropValue("feeling") %}',
+        nbDigits : '{%:= CurrentADC.PropValue("nbDigits") %}',
         imageWidth : '{%:= CurrentADC.PropValue("imageWidth") %}',
         imageHeight : '{%:= CurrentADC.PropValue("imageHeight") %}',		
         allowCrossOrigin : '{%:= CurrentADC.PropValue("allowCrossOrigin") %}',		

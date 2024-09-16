@@ -6,3 +6,4 @@ v4.0.4 - [JAC] Add height and width properties to store in JSON
          - [JAC] Changed Image Path to string instead of image selection
 v4.0.5 - [JAC] Add option for crossOrigin="anonymous" to prevent CORS errors for image on different domain
 v4.0.6 - [JD] fixed pin id reorder
+v4.0.7 - [JD] Added nbDigits parameter

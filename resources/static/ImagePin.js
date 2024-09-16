@@ -6,6 +6,14 @@
 })();
 
 (function () {
+
+/**
+  * function that limit the number of decimals of a number
+  */
+    function limitDecimal(number, decimals) {        
+        // Use toFixed to limit the number of decimals, then use parseFloat to convert to float
+        return parseFloat(number.toFixed(decimals));
+    }
     /**
   * function that emulate the jQuery matches function
   *
@@ -83,6 +91,7 @@
         this.currentQuestion = options.currentQuestion;
 
         var instanceId = options.instanceId || 1;
+        var nbDigits = options.nbDigits || 2;
         var imagePath = options.imagePath || "";
         var imageWidth = options.imageWidth || 0;
         var imageHeight = options.imageHeight || 0;        
@@ -218,10 +227,10 @@
                     this.appendChild(document.querySelector('.tempArea .pin.active'));
                     var dataPinId = adcControl.querySelector('[data-pinid="' + pinID + '"]');
                     dataPinId.dataset.target = e.target;
-                    dataPinId.dataset.x = xCoord * ratioX;
-                    dataPinId.dataset.y = yCoord * ratioY;
-                    dataPinId.dataset.x0 = xCoordParent;
-                    dataPinId.dataset.y0 = yCoordParent;
+                    dataPinId.dataset.x = limitDecimal(xCoord * ratioX, nbDigits);
+                    dataPinId.dataset.y = limitDecimal(yCoord * ratioY, nbDigits);
+                    dataPinId.dataset.x0 = limitDecimal(xCoordParent, nbDigits);
+                    dataPinId.dataset.y0 = limitDecimal(yCoordParent, nbDigits);
                     dataPinId.classList.add(pinMoodArray[feeling - 1]);
 
                     // write data in the textarea
@@ -314,10 +323,10 @@
                 var dataPinId = adcControl.querySelector('[data-pinid="' + currentPinID + '"]');
                 if (dataPinId !== null) {
                     dataPinId.dataset.target = adcControl.querySelector(".smartArea");
-                    dataPinId.dataset.x = pinX / ratioX;
-                    dataPinId.dataset.y = pinY / ratioY;
-                    dataPinId.dataset.x0 = xCoordParent;
-                    dataPinId.dataset.y0 = yCoordParent;
+                    dataPinId.dataset.x = limitDecimal(pinX / ratioX, nbDigits);
+                    dataPinId.dataset.y = limitDecimal(pinY / ratioY, nbDigits);
+                    dataPinId.dataset.x0 = limitDecimal(xCoordParent, nbDigits);
+                    dataPinId.dataset.y0 = limitDecimal(yCoordParent, nbDigits);
                     dataPinId.classList.remove("gPin");
                     dataPinId.classList.remove("nPin");
                     dataPinId.classList.remove("bPin");
